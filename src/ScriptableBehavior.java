@@ -1,5 +1,5 @@
-//Abstract class for "scripts"
-//TODO: Done for you!
+
+
 public abstract class ScriptableBehavior {
     //All scripts will have some shared attributes and functions
 

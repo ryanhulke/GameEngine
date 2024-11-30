@@ -1,7 +1,10 @@
-//An example script; this one will look for character input,
-// and translate whatever game object it is on
 
-//It is also customizable! Speed can change.
+
+import GameObject;
+import GatorEngine;
+import Input;
+import ScriptableBehavior;
+
 public class MovementScript  extends ScriptableBehavior {
     float speed = 0;//try changing this!
     MovementScript(GameObject g, float speed) {

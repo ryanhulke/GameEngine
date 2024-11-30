@@ -1,4 +1,6 @@
+
 import javax.swing.*;
+
 import java.awt.*;
 import java.awt.event.*;
 import java.awt.geom.Ellipse2D;
@@ -13,7 +15,6 @@ This class implements three main features for the engine:
 */
 
 public class GatorEngine {
-    //TODO: implementation stuff start below here
     //==========vvv Engine Implementation vvv==========
 
     //UI Components (things that are related to the UI/Display)
@@ -59,18 +60,17 @@ public class GatorEngine {
         WINDOW.pack();
 
 
-        //TODO: This Timer runs at the target FPS. You need to implement the Update loop.
+        // This Timer runs at the target FPS.
         FRAMETIMER = new Timer((int)FRAMEDELAY, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Thread FRAMETHREAD = new Thread(new Runnable() {
                     @Override
                     public void run() {
-                        //TODO: Update loop
-                        // Use Inputs received in the middle of the previous timer execution to update the Input class (Input.ReceiveInputs())
-                        // Execute the implemented UpdateEngine() to Update() all GameObjects in the Engine.
-                        // Clear any inputs that need to be removed between frames (e.g., MouseClicked, KeyPressed, etc.) with Input.ValidateInputs()
-                        // Ensure OBJECTLIST is up to date
+                        // Uses Inputs received in the middle of the previous timer execution to update the Input class (Input.ReceiveInputs())
+                        // Executes the implemented UpdateEngine() to Update() all GameObjects in the Engine.
+                        // Clears any inputs that need to be removed between frames (e.g., MouseClicked, KeyPressed, etc.) with Input.ValidateInputs()
+                        // Ensures OBJECTLIST is up to date
                         Input.ReceiveInputs();
                         UpdateEngine();
                         Input.ValidateInputs();
@@ -79,7 +79,6 @@ public class GatorEngine {
                         SwingUtilities.invokeLater(new Runnable() {
                             @Override
                             public void run() {
-                                //TODO:
                                 // Repaint the GUI and restart the FRAMETIMER back on the EDT.
                                 DISPLAY_LABEL.repaint();
                                 FRAMETIMER.restart();
@@ -95,7 +94,7 @@ public class GatorEngine {
 
         //===================INPUT=========================
         //Key Events
-        //TODO: Use the events to manage the various lists and data in the Input class.
+        // Use the events to manage the various lists and data in the Input class.
         DISPLAY_CONTAINER.addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) {
@@ -160,21 +159,21 @@ public class GatorEngine {
 
     //=========Engine Functions
 
-    //TODO: Mark an object for creation in the CREATELIST and Start() it.
+    // Mark an object for creation in the CREATELIST and Start() it.
     static void Create(GameObject g){
         g.Start();
         CREATELIST.add(g);
     }
 
 
-    //TODO: Marks an object for deletion in the DELETELIST.
+    // Marks an object for deletion in the DELETELIST.
     static void Delete(GameObject g){
         DELETELIST.add(g);
     }
 
-    //TODO: If an object was marked for deletion this frame, remove it from the OBJECTLIST.
-    //TODO: If an object was marked for creation this frame, add it to the OBJECTLIST.
-    //TODO: Remove objects marked for deletion/creation this frame from their repective list.
+    // If an object was marked for deletion this frame, remove it from the OBJECTLIST.
+    // If an object was marked for creation this frame, add it to the OBJECTLIST.
+    // Remove objects marked for deletion/creation this frame from their repective list.
     static void ValidateGameObjectLists(){
         // Remove objects marked for deletion
         for (GameObject g : DELETELIST){
@@ -187,12 +186,12 @@ public class GatorEngine {
         CREATELIST.clear();
     }
 
-    //TODO: Start() the Application, and then Start() all objects in OBJECTLIST
+    // Start() the Application, and then Start() all objects in OBJECTLIST
     static void StartEngine(){
         Application.Start();
     }
 
-    //TODO: Redraw the Background(), then Update() and Draw() all GameObjects in OBJECTLIST
+    // Redraw the Background(), then Update() and Draw() all GameObjects in OBJECTLIST
     static void UpdateEngine(){
         Background();
         for (GameObject g : OBJECTLIST){
@@ -202,7 +201,6 @@ public class GatorEngine {
     }
 
     //Draws a background on the Renderer. right now it is solid, but we could load an image
-    //TODO: Nothing! Done for you!
     static void Background(){
         RENDERER.setColor(Color.WHITE);
         RENDERER.fillRect(0,0,WIDTH,HEIGHT);

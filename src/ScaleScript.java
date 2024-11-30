@@ -1,4 +1,8 @@
+
 import java.awt.geom.AffineTransform;
+
+import GameObject;
+import ScriptableBehavior;
 
 
 public class ScaleScript extends ScriptableBehavior {

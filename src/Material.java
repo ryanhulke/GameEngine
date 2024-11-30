@@ -1,3 +1,4 @@
+
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -10,11 +11,6 @@ public class Material {
     boolean IsShape = true; //If the material displays an image or not
     BufferedImage MaterialImage; //The image displayed on the object.
 
-    //TODO: Create default
-    // black fill
-    // black stroke
-    // zero stroke width
-    // is a shape
     Material(){
         Fill = Color.BLACK;
         Stroke = Color.BLACK;
@@ -22,7 +18,6 @@ public class Material {
         IsShape = true;
     }
 
-    //TODO: Sets the appropriate fields.
     public Material(Color fill, Color border, int borderWidth) {
         Fill = fill;
         Stroke = border;
@@ -30,12 +25,11 @@ public class Material {
         IsShape = true;
     }
 
-    //TODO: Load the image at the path and set isShape flag to false
     public Material(String path){
         SetMaterialImage(path);
     }
 
-    //TODO: Loads an image and updates this Material's image;
+    // Loads an image and updates this Material's image;
     public void SetMaterialImage(String path){
         try {
             MaterialImage = ImageIO.read(new File(path));
@@ -45,7 +39,6 @@ public class Material {
         }
     }
 
-    //Getters and Setters, done for you!
     public Color GetFill() {
         return Fill;
     }

@@ -1,6 +1,11 @@
+
 import java.awt.Shape;
 import java.awt.geom.AffineTransform;
 import java.awt.geom.Rectangle2D;
+
+import GameObject;
+import GatorEngine;
+import ScriptableBehavior;
 
 public class ObstacleMovementScript extends ScriptableBehavior {
     private float speed;

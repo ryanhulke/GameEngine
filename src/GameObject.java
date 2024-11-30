@@ -1,3 +1,4 @@
+
 import java.awt.*;
 import java.awt.geom.AffineTransform;
 import java.awt.geom.Area;
@@ -13,17 +14,13 @@ public class GameObject {
     private ArrayList<ScriptableBehavior> ObjectScripts = new ArrayList<>(); //all scripts attached to the object
     private boolean IsActive = true; //whether this gets Updated() and Draw()
 
-    //TODO: Create the default GameObject using:
-    //TODO: a default AffineTransform
-    //TODO: a default Material
-    //TODO: a 10x10 pixel Rectangle2D.Float Shape at coordinate (0,0)
     public GameObject(){
         ObjectTransform = new AffineTransform();
         ObjectMaterial = new Material();
         ObjectShape = new Rectangle2D.Float(0, 0, 10, 10);
     }
 
-    //TODO: Create the default GameObject, but with its AffineTransform translated to the coordinate (x,y)
+
     public GameObject(int x, int y){
         this();
         ObjectTransform.translate(x, y);
@@ -31,14 +28,14 @@ public class GameObject {
 
     //Engine Methods
 
-    //TODO: Start all scripts on the object
+    // Start all scripts on the object
     public void Start(){
         for (ScriptableBehavior script : ObjectScripts){
             script.Start();
         }
     }
 
-    //TODO: Update all scripts on the object
+    // Update all scripts on the object
     public void Update(){
         if (!IsActive) return;
         for (ScriptableBehavior script : ObjectScripts){
@@ -46,14 +43,13 @@ public class GameObject {
         }
     }
 
-    //TODO: Adds a new scripted behavior at runtime.
-    // Start the script and add it to the list.
+    // Adds a new scripted behavior at runtime.
     public void AddScript(ScriptableBehavior NewScript){
         ObjectScripts.add(NewScript);
         NewScript.Start();
     }
 
-    //TODO: Draw the object by
+    // Draw the object by
     // 1) saving the renderer's old transform.
     // 2) transforming the renderer based on the GameObject's transform.
     // 3) based on the type of material, drawing either the styled shape or the image scaled to the bounds of the shape.
@@ -90,13 +86,12 @@ public class GameObject {
         renderer.setTransform(oldTransform);
     }
 
-    //Movement/Collision Methods
-    //TODO: Move the GameObject's transform by the provided values.
+    // Movement/Collision Methods
+    // Move the GameObject's transform by the provided values.
     public void Translate(float dX, float dY){
         ObjectTransform.translate(dX, dY);
     }
 
-    //TODO:
     public void MoveTo(float x, float y){
         double m00 = ObjectTransform.getScaleX();
         double m10 = ObjectTransform.getShearY();
@@ -105,7 +100,7 @@ public class GameObject {
         ObjectTransform.setTransform(m00, m10, m01, m11, x, y);
     }
 
-    //TODO: Scale the GameObject's transform around the CENTER of its transformed shape.
+    // Scale the GameObject's transform around the CENTER of its transformed shape.
     public void Scale(float sX, float sY){
         // Get the transformed shape
         Shape transformedShape = ObjectTransform.createTransformedShape(ObjectShape);
@@ -121,7 +116,7 @@ public class GameObject {
         ObjectTransform.concatenate(at);
     }
 
-    //TODO: Returns true if the two objects are touching
+    // Returns true if the two objects are touching
     // i.e., the intersection of their Areas is not empty)
     public boolean CollidesWith(GameObject other){
         Shape shape1 = ObjectTransform.createTransformedShape(ObjectShape);
@@ -135,14 +130,13 @@ public class GameObject {
         return !area1.isEmpty();
     }
 
-    //TODO:Should return true if the transformed shape contains the point
+    // returns true if the transformed shape contains the point
     public boolean Contains(Point2D point){
         Shape transformedShape = ObjectTransform.createTransformedShape(ObjectShape);
         return transformedShape.contains(point);
     }
 
     //Getters and Setters
-    //TODO: Done for you!
     public AffineTransform GetObjectTransform() {
         return ObjectTransform;
     }

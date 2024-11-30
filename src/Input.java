@@ -1,3 +1,4 @@
+
 import java.util.ArrayList;
 
 public class Input {
@@ -66,7 +67,7 @@ public class Input {
         MouseClicked = false;
     }
 
-    //TODO: Add the character to the list of received pressed keys if it is not already in the actual set of pressed keys.
+    // Add the character to the list of received pressed keys if it is not already in the actual set of pressed keys.
     static public void AddKeyPressed(char c){
         if (!Received_PressedList.contains(c)){
             Received_PressedList.add(c);
@@ -75,30 +76,29 @@ public class Input {
 
     // No need for AddKeyHeld since we're managing HeldList based on Pressed and Released keys
 
-    //TODO: Add the character to the list of received released keys if it is not already in the actual set of released keys.
+    // Add the character to the list of received released keys if it is not already in the actual set of released keys.
     static public void AddKeyReleased(char c){
         if (!Received_ReleasedList.contains(c)){
             Received_ReleasedList.add(c);
         }
     }
 
-    //TODO: return true if c is in the pressed list
+    // return true if c is in the pressed list
     static boolean GetKeyPressed(char c){
         return PressedList.contains(c);
     }
 
-    //TODO: return true if c is in the held list
+    // return true if c is in the held list
     static boolean GetKeyHeld(char c){
         return HeldList.contains(c);
     }
 
-    //TODO: return true if c is in the released list
+    // return true if c is in the released list
     static boolean GetKeyReleased(char c){
         return ReleasedList.contains(c);
     }
 
     //Getters and Setters
-    //TODO: Done for you!
     public static int GetMouseX() {
         return MouseX;
     }

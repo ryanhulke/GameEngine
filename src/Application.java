@@ -1,6 +1,11 @@
 import java.awt.Color;
 import java.awt.geom.Rectangle2D;
 
+import GameObject;
+import GatorEngine;
+import Material;
+
+
 public class Application {
     //This is where we can implement applications in the Gator Engine.
 

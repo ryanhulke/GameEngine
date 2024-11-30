@@ -1,4 +1,7 @@
+
 import java.awt.Color;
+
+import ScriptableBehavior;
 
 public class ColorChangeScript extends ScriptableBehavior {
     private int frameCount = 0;
